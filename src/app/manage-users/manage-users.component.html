@@ -1,0 +1,83 @@
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" >
+
+    <!-- location Column -->
+    <ng-container matColumnDef="location" class="row">
+        <th mat-header-cell *matHeaderCellDef> location </th>
+        <td mat-cell (click)="onSelect(element, $event)" [class.selected]="element === selectedUser" *matCellDef="let element"> {{"long: " + element.location.long +", lat: " + element.location.lat}}
+        </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName" class="row">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell (click)="onSelect(element, $event)" [class.selected]="element === selectedUser" *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- lastName Column -->
+    <ng-container matColumnDef="lastName" class="row">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell (click)="onSelect(element, $event)" class="row" [class.selected]="element === selectedUser" *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- password Column -->
+    <ng-container matColumnDef="password" class="row">
+        <th mat-header-cell *matHeaderCellDef> Password </th>
+        <td mat-cell (click)="onSelect(element , $event)" [class.selected]="element === selectedUser" *matCellDef="let element"> {{element.password}} </td>
+    </ng-container>
+
+    <!-- mail Column -->
+    <ng-container matColumnDef="mail" class="row">
+        <th mat-header-cell *matHeaderCellDef> Mail </th>
+        <td mat-cell (click)="onSelect(element ,$event)" [class.selected]="element === selectedUser" *matCellDef="let element"> {{element.mail}} </td>
+    </ng-container>
+
+    <!-- admin Column -->
+    <ng-container matColumnDef="admin" class="row">
+        <th mat-header-cell *matHeaderCellDef> Admin </th>
+        <td mat-cell (click)="onSelect(element, $event)" [class.selected]="element === selectedUser" *matCellDef="let element"> {{element.admin}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row table"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+</table>
+
+<div class="demo-button-container">
+    <div >
+        <form name="form" class="add" [formGroup]="form" >
+            <mat-form-field class="add-item" appearance="standard">
+                <mat-label>location</mat-label>
+                <input formControlName="location" [(ngModel)]="selectedUser.location" matInput placeholder="Ex. ium" #input>
+            </mat-form-field>
+            <mat-form-field class="add-item" appearance="standard">
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" matInput [(ngModel)]="selectedUser.firstName" placeholder="Ex. ium" #input>
+            </mat-form-field>
+            <mat-form-field class="add-item" appearance="standard">
+                <mat-label> Last Name</mat-label>
+                <input formControlName="lastName"  matInput placeholder="Ex. ium" [(ngModel)]="selectedUser.lastName" #input>
+            </mat-form-field>
+            <mat-form-field class="add-item" appearance="standard">
+                <mat-label>Password</mat-label>
+                <input formControlName="password"  matInput placeholder="Ex. ium" #input [(ngModel)]="selectedUser.password">
+            </mat-form-field>
+            <mat-form-field class="add-item" appearance="standard">
+                <mat-label>Mail</mat-label>
+                <input formControlName="mail"  matInput placeholder="Ex. ium" #input [(ngModel)]="selectedUser.mail">
+            </mat-form-field>
+            <section class="checkbox-section">
+                <mat-checkbox  formControlName="admin" class="add-item" [(ngModel)]="selectedUser.admin" [color]="'primary'">Admin</mat-checkbox>
+            </section>
+        </form>
+    </div>
+    <button class="add-item" mat-raised-button color="primary" (click)="addData()">Add user</button>
+</div>

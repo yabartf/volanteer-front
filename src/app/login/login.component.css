@@ -1,0 +1,123 @@
+.grid-form {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    margin-top: 20px;
+}
+.main-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-place {
+    flex-grow: 1.5;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    width: 80%;
+}
+#main-label {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 40px;
+    color: #272833;
+    margin: 0 45%;
+}
+
+.form-div {
+    padding: 5%;
+    flex-grow: 4;
+    margin: 0 5%;
+}
+
+@media (max-width: 600px) {
+    .grid-form {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .form-div {
+        padding: 0;
+    }
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#submitButton {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px min(40%, 151px);
+    background: #04C35C;
+    border-radius: 100px;
+    color: #FFFFFF;
+    font-weight: bold;
+    width: 100%;
+}
+
+label {
+    font-family: Heebo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+    text-align: right;
+    /* b3 */
+    color: #838B9E;
+    margin-bottom: 5px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #D9DDE6;
+    color: #0E162A;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+
+input:focus {
+    outline: none;
+    animation: change-input 1s;
+    border-bottom: 1px solid #0E162A;
+}
+
+input:focus~label {
+    animation: change-label 1s;
+    color: #0E162A;
+}
+
+@keyframes change-input {
+    from {
+        border-bottom: 1px solid #D9DDE6;
+    }
+    to {
+        border-bottom: 1px solid #0E162A;
+    }
+}
+
+@keyframes change-label {
+    from {
+        color: #838B9E;
+    }
+    to {
+        color: #0E162A;
+    }
+}
+
+.under-label {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: right;
+    color: #838B9E;
+}

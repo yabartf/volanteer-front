@@ -1,0 +1,43 @@
+/* Structure */
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.add {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.add-item{
+    flex-shrink: 0;
+    width: max(200px, 23%);
+    padding: 1%;
+}
+button{
+    height: min-content;
+    align-self: center;
+}
+
+.checkbox-section {
+    display: flex;
+    align-content: center;
+    align-items: flex-end;
+    height: 60px;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+
+  .show{
+      background-color: rgb(135, 138, 138);
+      color: white !important;
+  }
+  

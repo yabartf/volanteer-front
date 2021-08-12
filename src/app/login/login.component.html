@@ -1,0 +1,24 @@
+<div class="main-div">
+  
+    <div class="form-div">
+        <section>
+            <label for="form" id="main-label">Login</label>
+            <form name="form" class="grid-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-item">
+                    <input id="in" type="text" formControlName="firstName">
+                    <label id="la">Username</label>
+                </div>
+                <div class="form-item">
+                    <input type="password" formControlName="password">
+                    <label>Password</label>
+                </div>
+                <div class="form-item">
+                    <button type="submit" [disabled]="!form.valid" id="submitButton">Login</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="menu-place">
+        <img src="assets/volanteer.jpg">
+    </div>
+</div>
